@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock-Paper-Scissors Game</title>
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+
+<body>
+  <h1>Rock-Paper-Scissors Game</h1>
+
+  <!-- Display Game Result -->
+  {% if result %}
+  <p class="js-result">{{ result }}</p>
+  <p class="js-move">You chose: <img src="static/images/{{player_move}}.png" alt="{{player_move}}" width="70px" /> | <img src="static/images/{{computer_move}}.png" alt="computer_move" width="70px" /> :Computer chose</p>
+  {% endif %}
+
+  <!-- Display Current Scores -->
+  <p class="tab">Wins: {{ scores['Wins'] }} | Loses: {{ scores['Loses'] }} | Ties: {{ scores['Ties'] }}</p>
+
+  <!-- Form to play the game -->
+
+  <form method="POST">
+    <button type="submit" class="rock-button" name="move" value="rock">
+      <img src="static/images/Rock.png" alt="Rock" width="70px" />
+    </button>
+    <button type="submit" class="paper-button" name="move" value="paper">
+      <img src="static/images/Paper.png" alt="Paper" width="70px" />
+    </button>
+    <button type="submit" class="scissors-button" name="move" value="scissors">
+      <img src="static/images/Scissors.png" alt="Scissors" width="70px" />
+    </button>
+  </form>
+
+  <!-- Reset Button -->
+  <form action="/reset" method="POST">
+    <button type="submit" class="reset" >Reset Scores</button>
+  </form>
+
+</body>
+
+</html>
