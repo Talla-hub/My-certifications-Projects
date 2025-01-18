@@ -59,8 +59,8 @@ def index():
             'index.html', 
             scores=scores, 
             result=result, 
-            player_move=player_move, 
-            computer_move=computer_move_value
+            player_move=player_move.title(), 
+            computer_move=computer_move_value.title()
         )
     
     # On GET request (initial load), render the page with current scores
